@@ -8,18 +8,12 @@ import {
   FaBusinessTime,
   FaMoneyBillWave,
   FaExclamationTriangle,
-  FaEnvelope,
   FaPlay,
   FaRocket,
-  FaPaperPlane,
 } from "react-icons/fa";
-import popupGif from "@/public/images/herogif1.gif";
-import SendLetterModal from "../BusinessLetters/SubmitLetter";
-import { Dialog } from "@headlessui/react";
-import RotatingText from "../RotatingText";
+import SendLetterModal from "@/components/BusinessLetters/SubmitLetter";
+import RotatingText from "@/components/RotatingText";
 import heroBg from "@/public/images/hero_test.jpg";
-
-const placeholderVideo = "/pebechero.mp4";
 
 const notifications = [
   { id: 1, text: "Check our reforms!", icon: <FaInfoCircle className="text-white text-lg" />, bgColor: "bg-green-600" },
@@ -31,7 +25,6 @@ const notifications = [
 
 const Hero = () => {
   const [currentNotification, setCurrentNotification] = useState(0);
-  const [hoveredLetter, setHoveredLetter] = useState(false);
   const [hoveredVideo, setHoveredVideo] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [openVideo, setOpenVideo] = useState(false);
@@ -72,7 +65,7 @@ const Hero = () => {
           <div className="md:w-1/2 text-center md:text-left">
             <div className="flex justify-center md:justify-start mb-4 gap-2">
               <span className="text-lg font-medium text-black dark:text-white">
-              Transforming the Nigerian Business Landscape
+                Transforming the Nigerian Business Landscape
               </span>
             </div>
 
@@ -96,107 +89,60 @@ const Hero = () => {
             </h1>
 
             <p className="text-gray-700 text-base md:text-lg leading-relaxed font-[Inter] tracking-wide max-w-2xl mx-auto md:mx-0">
-            The Presidential Enabling
-Business Environment Council
-(PEBEC) is driving impactful reforms to make business in Nigeria Nigeria easier, more transparent, and less bureaucratic.  From simplified processes to digital innovations, we’re creating an environment where businesses can start, grow, and thrive with ease.
+              The Presidential Enabling Business Environment Council (PEBEC) is driving impactful reforms to make business in Nigeria easier, more transparent, and less bureaucratic. From simplified processes to digital innovations, we're creating an environment where businesses can start, grow, and thrive with ease.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4 w-full items-center">
-            {/* Letter Button */}
-              {/* <button
-    className="group relative w-[90%] xs:w-[80%] sm:w-[50%] max-w-[250px] h-[60px] sm:h-[70px] overflow-hidden"
-    onMouseEnter={() => setHoveredLetter(true)}
-                onMouseLeave={() => setHoveredLetter(false)}
-                onClick={() => setOpenModal(true)}
+              <button
+                onClick={() => window.location.href = "/reforms"}
+                className="group relative w-[90%] xs:w-[80%] sm:w-[50%] max-w-[250px] h-[60px] sm:h-[70px] overflow-hidden"
+                onMouseEnter={() => setHoveredVideo(true)}
+                onMouseLeave={() => setHoveredVideo(false)}
               >
-                <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-teal-500 via-emerald-500 to-green-500 opacity-20 blur-xl transition-all duration-500 group-hover:opacity-50 group-hover:blur-2xl" />
+                <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-green-400 via-lime-500 to-emerald-500 opacity-20 blur-xl transition-all duration-500 group-hover:opacity-50 group-hover:blur-2xl" />
                 <div className="relative flex justify-between items-center rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 w-full h-full">
-                  <div className="flex items-center gap-2">
-                    <div className="relative w-5 h-5">
-                      <motion.div
-                        initial={{ y: 0, opacity: 1 }}
-                        animate={hoveredLetter ? { y: -20, opacity: 0 } : { y: 0, opacity: 1 }}
-                        transition={{ duration: 0.4 }}
-                        className="absolute"
-                      >
-                        <FaEnvelope className="text-teal-500 w-5 h-5" />
-                      </motion.div>
-                      <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={hoveredLetter ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="absolute"
-                      >
-                        <FaPaperPlane className="text-teal-500 w-5 h-5" />
-                      </motion.div>
+                  <div className="flex items-center gap-3">
+                    <FaInfoCircle className="text-green-400 w-4 h-4" />
+                    <div className="flex flex-col">
+                      <span className="text-sm font-bold text-white">Discover Our Reforms</span>
+                      <span className="text-[10px] font-medium text-slate-400">Explore key initiatives</span>
                     </div>
-                    <span className="text-sm font-bold text-white ml-6">Send Us a Letter</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <div className="h-4 w-1 rounded-full bg-slate-800">
-                      <div className="h-3 w-full bg-emerald-500/60 rounded-full animate-pulse" />
-                    </div>
-                    <span className="text-xs font-medium text-green-500">Online</span>
                   </div>
                 </div>
-              </button> */}
-
-            {/* Discover Reforms Button */}
-<button
-  onClick={() => window.location.href = "/reforms"}
-  className="group relative w-[90%] xs:w-[80%] sm:w-[50%] max-w-[250px] h-[60px] sm:h-[70px] overflow-hidden"
-  onMouseEnter={() => setHoveredVideo(true)}
-  onMouseLeave={() => setHoveredVideo(false)}
->
-  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-green-400 via-lime-500 to-emerald-500 opacity-20 blur-xl transition-all duration-500 group-hover:opacity-50 group-hover:blur-2xl" />
-  <div className="relative flex justify-between items-center rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 w-full h-full">
-    <div className="flex items-center gap-3">
-      <FaInfoCircle className="text-green-400 w-4 h-4" />
-      <div className="flex flex-col">
-        <span className="text-sm font-bold text-white">Discover Our Reforms</span>
-        <span className="text-[10px] font-medium text-slate-400">Explore key initiatives</span>
-      </div>
-    </div>
-  </div>
-</button>
-
+              </button>
             </div>
           </div>
 
-          {/* Right: Static Video Frame with Play Button (YouTube Inline Playback) */}
+          {/* Right: Static Video Frame with Play Button */}
           <div className="relative w-full md:w-1/2 mt-10 lg:mt-0">
-          {/* <div className="absolute top-0 left-0 -translate-x-10 -translate-y-10">
-    <Image src={popupGif} alt="Popup Animation" width={200} height={200} />
-  </div> */}
-
-<div className="relative w-full max-w-[720px] aspect-[16/9] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-black">
-  {!openVideo ? (
-    <>
-      <img
-        src="https:
-        alt="Video preview"
-        className="w-full h-full object-cover"
-      />
-      <button
-        onClick={() => setOpenVideo(true)}
-        className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
-      >
-        <div className="bg-white bg-opacity-90 rounded-full p-6 shadow-xl hover:scale-105 transition-transform">
-          <FaPlay className="text-green-600 text-4xl" />
-        </div>
-      </button>
-    </>
-  ) : (
-    <ReactPlayer
-      url="https:
-      playing
-      controls
-      width="100%"
-      height="100%"
-    />
-  )}
-</div>
-
+            <div className="relative w-full max-w-[720px] aspect-[16/9] mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-black">
+              {!openVideo ? (
+                <>
+                  <Image
+                    src="/images/video-thumbnail.png"
+                    alt="Video preview"
+                    fill
+                    className="object-cover"
+                  />
+                  <button
+                    onClick={() => setOpenVideo(true)}
+                    className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/60 transition"
+                  >
+                    <div className="bg-white bg-opacity-90 rounded-full p-6 shadow-xl hover:scale-105 transition-transform">
+                      <FaPlay className="text-green-600 text-4xl" />
+                    </div>
+                  </button>
+                </>
+              ) : (
+                <ReactPlayer
+                  url="https://www.youtube.com/watch?v=your-video-id"
+                  playing
+                  controls
+                  width="100%"
+                  height="100%"
+                />
+              )}
+            </div>
 
             <div className="absolute left-[50%] bottom-[-100px] transform -translate-x-1/2 w-full max-w-[350px] flex flex-col items-center">
               <AnimatePresence>
@@ -219,24 +165,6 @@ Business Environment Council
       </div>
 
       <SendLetterModal open={openModal} setOpen={setOpenModal} />
-
-      {/* <Dialog open={openVideo} onClose={() => setOpenVideo(false)} className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
-        <div className="relative w-full max-w-4xl aspect-video mx-auto rounded-lg overflow-hidden">
-          <button
-            onClick={() => setOpenVideo(false)}
-            className="absolute top-2 right-4 z-10 text-white text-2xl"
-          >
-            &times;
-          </button>
-          <ReactPlayer
-            url="https:
-            controls
-            playing
-            width="100%"
-            height="100%"
-          />
-        </div>
-      </Dialog> */}
     </section>
   );
 };

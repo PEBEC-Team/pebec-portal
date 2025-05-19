@@ -8,7 +8,7 @@ import { FaLaptopCode, FaSignOutAlt } from "react-icons/fa";
 import { IoChevronDownOutline } from "react-icons/io5";
 import { SignedIn, SignedOut, SignInButton, useClerk, UserButton, useUser } from "@clerk/nextjs";
 import NotificationBadge from "../NotificationBadge";
-import MobileMenu from "./mobileMenu";
+// import MobileMenu from "./mobileMenu";
 import { Suspense } from "react";
 
 import {
@@ -34,7 +34,6 @@ import ReportGovModal from "@/app/(site)/reportgov-options/page";
 import { Globe } from "lucide-react";
 import { FaCameraRetro } from "react-icons/fa";
 import { toast } from "sonner";
-import VerifyPrimaryEmail from "../VerifyPrimaryEmail";
 import { Menu, Transition } from "@headlessui/react";
 
 const Header = () => {
@@ -203,7 +202,7 @@ const Header = () => {
   </Link>
 
   {/* Hamburger menu */}
-  <MobileMenu />
+  {/* <MobileMenu /> */}
 </div>
 
 

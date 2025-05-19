@@ -2,39 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base styles */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 3.9%;
+  --primary: 0 0% 9%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 96.1%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96.1%;
+  --muted-foreground: 0 0% 45.1%;
+  --accent: 0 0% 96.1%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 89.8%;
+  --input: 0 0% 89.8%;
+  --ring: 0 0% 3.9%;
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
+  --radius: 0.5rem;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #4B5563;
+  background-color: #FFFFFF;
+  position: relative;
+  z-index: 1;
+}
+
+/* Components */
+.dropdown {
+  position: absolute;
+  left: -30px;
+  margin-top: 0.5rem;
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  background-color: white;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(2.5rem);
+}
+
+.dropdown::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 40px;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  border-left: 1px solid #E5E7EB;
+  border-top: 1px solid #E5E7EB;
+  background-color: white;
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.img-white {
+  filter: invert(0%) sepia(96%) saturate(15%) hue-rotate(249deg)
+    brightness(100%) contrast(105%);
+}
+
+/* Rest of your existing CSS styles... */
 
 @layer base {
   body {
     @apply relative z-1 font-inter text-regular font-normal text-waterloo text-manatee;
   }
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-  }
-  
 }
 
 @layer components {
@@ -69,7 +127,6 @@
   }
 }
 
-
 pre {
   @apply relative mb-2 rounded-lg bg-strokedark px-4 py-2;
 }
@@ -89,7 +146,6 @@ pre {
     @apply bg-background text-foreground;
   }
 }
-
 
 /* Ensure Clerk modal fully covers the page */
 .cl-overlay {
@@ -115,8 +171,6 @@ body.modal-open {
 body.modal-open .cl-modal {
   pointer-events: auto;
 }
-
-
 
 pre {
   background: #0d0d0d;
@@ -185,7 +239,6 @@ pre {
   }
 }
 
-
 .chat-container {
   display: flex;
   flex-direction: column;
@@ -206,8 +259,6 @@ pre {
   margin-bottom: 10px;
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -217,10 +268,7 @@ pre {
   }
 }
 
-
-
 /* STEPPER CODE */
-
 .outer-container {
   display: flex;
   min-height: 100%;
@@ -392,9 +440,7 @@ pre {
   color: #fff;
 }
 
-
 /* DOCKER STYLE */
-
 .dock-outer {
   margin: 0 0.5rem;
   display: flex;
@@ -452,7 +498,6 @@ pre {
   transform: translateX(-50%);
 }
 
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -467,8 +512,6 @@ pre {
 .animate-fadeIn {
   animation: fadeIn 0.8s ease-out forwards;
 }
-
-
 
 /* Placeholder styling to avoid extra borders */
 .editor-placeholder p:first-child::before {
@@ -492,8 +535,6 @@ pre {
   outline: none !important;
   border: none !important;
 }
-
-
 
 .text-rotate {
   display: flex;
@@ -532,7 +573,6 @@ pre {
   white-space: pre;
 }
 
-
 .modal {
   position: fixed;
   top: 50%;
@@ -556,9 +596,6 @@ pre {
 button {
   margin-right: 5px;
 }
-
-
-
 
 /* 🟢 Stylish Download Button */
 .download-button {
@@ -632,11 +669,9 @@ button {
   }
 }
 
-
 #toast, .sonner-toast, .sonner-container, .toaster {
   z-index: 99999 !important;
 }
-
 
 @keyframes slideDown {
   0% {
@@ -652,7 +687,6 @@ button {
 .animate-slideDown {
   animation: slideDown 0.3s ease-out;
 }
-
 
 /* Base calendar container */
 .react-calendar {
@@ -734,8 +768,6 @@ button {
   border-radius: 9999px;
 }
 
-
-
 /* global.css or in tailwind config */
 .scrollbar-visible::-webkit-scrollbar {
   width: 8px;
@@ -755,7 +787,6 @@ button {
   background: #555;
 }
 
-
 .list-decimal li::marker {
   color: #22c55e; /* Tailwind green-500 */
   font-weight: bold;
@@ -764,7 +795,6 @@ button {
 .hover\:bg-gray-100:hover {
   transition: all 0.2s ease-in-out;
 }
-
 
 @keyframes fadeIn {
   from {
@@ -779,7 +809,6 @@ button {
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out forwards;
 }
-
 
 @keyframes revealColor {
   0% {
@@ -797,7 +826,6 @@ button {
 .animate-logo-reveal {
   animation: revealColor 1.5s ease-out forwards;
 }
-
 
 input, select, textarea {
   @apply text-gray-900 bg-white;

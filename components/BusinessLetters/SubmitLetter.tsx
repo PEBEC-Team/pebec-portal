@@ -12,8 +12,8 @@ import { Button } from "@/components/ui/button";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Id } from "@/convex/_generated/dataModel";
-import FileUploader from "../file-uploader";
-import MultiFileUploader from "../multi-file-uploader";
+import FileUploader from "@/components/file-uploader";
+import MultiFileUploader from "@/components/multi-file-uploader";
 import { useToast } from "@/hooks/use-toast";
 
 interface Props {
@@ -28,7 +28,7 @@ export default function SendLetterModal({ open, setOpen }: Props) {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [letterFileId, setLetterFileId] = useState<string | null>(null);
-  const [supportingFileIds, setSupportingFileIds] = useState<string[]>([]);
+  const [supportingFileIds, setSupportingFileIds] = useState<{ storageId: string; fileName: string }[]>([]);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const createLetter = useMutation(api.business_letters.createBusinessLetter);
@@ -59,7 +59,7 @@ export default function SendLetterModal({ open, setOpen }: Props) {
         email,
         phone,
         letterFileId: letterFileId as Id<"_storage">,
-        supportingFileIds: supportingFileIds as Id<"_storage">[],
+        supportingFileIds: supportingFileIds.map(file => file.storageId as Id<"_storage">),
       });
 
       toast({
